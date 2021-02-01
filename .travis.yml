@@ -4,7 +4,7 @@ dist: trusty
 android:
   components:
     - build-tools-3.1.2
-    - android-30
+    - android-22
     -sys-img-armeabi-v7a-$ANDROID_TARGET
 
 env:
