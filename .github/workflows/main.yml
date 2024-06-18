@@ -37,7 +37,7 @@ jobs:
       - name: Set Up JDK
         uses: actions/setup-java@v4
         with:
-          distribution: 'zulu' # See 'Supported distributions' for available options
+          distribution: 'temurin' # See 'Supported distributions' for available options
           java-version: '17'
           cache: 'gradle'
 
@@ -47,15 +47,15 @@ jobs:
 
       # Run Build Project
       - name: Build gradle project
-        run: ./gradlew build
+        run: ./gradlew build --stacktrace
 
       # Create APK Debug
       - name: Build apk debug project (APK) - ${{ env.main_project_module }} module
-        run: ./gradlew assembleDebug
+        run: ./gradlew assembleDebug --stacktrace
 
       # Create APK Release
       - name: Build apk release project (APK) - ${{ env.main_project_module }} module
-        run: ./gradlew assemble
+        run: ./gradlew assemble --stacktrace
 
       # Create Bundle AAB Release
       # Noted for main module build [main_project_module]:bundleRelease
